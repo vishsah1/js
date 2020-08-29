@@ -1,0 +1,19 @@
+<script>
+    var call1Obj = {
+        name: "Rahul",
+        age: 29,
+        feature: function(gender, add) {
+            console.log("hi how are you... " + " " + this.name + " " + this.age + " " + gender + " " + add);
+        }
+    }
+
+    call1Obj.feature("male");
+
+    var call2Obj = {
+        name: "Vish",
+        age: 29,
+
+    }
+    call1Obj.feature.call(call2Obj, "male", "delhi");
+    call1Obj.feature.apply(call2Obj, ["male", "delhi"]);
+</script>

@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <h1>Word-Reverse</h1>
+</head>
+
+<body>
+
+    <input type="text" name="" id="original" placeholder="Enter Word" onkeyup="reverse()" />
+    <input type="text" name="" id="afterReverse" placeholder="After Getting Reverse" />
+    <script>
+        function reverse() {
+
+            var str = document.getElementById('original').value;
+
+            var strlength = "";
+
+            for (var i = str.length - 1; i >= 0; i--) {
+
+                strlength += str[i];
+            }
+
+            document.getElementById('afterReverse').value = strlength;
+        }
+    </script>
+
+</body>
+
+</html>

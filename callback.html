@@ -1,0 +1,39 @@
+<html>
+
+<head> </head>
+
+<body>
+
+    <script>
+        // function A() {
+        //     setTimeout(function() {
+        //         console.log("welcome function A");
+        //         B();
+        //     }, 3000);
+        // }
+
+        // const B = () => {
+        //     console.log("welcome function B");
+
+        // }
+        // A();
+
+
+        const friend1 = (friend, friends) => {
+
+            console.log("I am Friend1 " + friend);
+
+            friends();
+        }
+
+        const friend2 = () => {
+
+            console.log("I am Friend2 ");
+        }
+
+        friend1("vish", friend2);
+    </script>
+
+</body>
+
+</html>

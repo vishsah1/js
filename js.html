@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <title> </title>
+</head>
+
+<body>
+    <h1>Learning Java..</h1>
+    <ul>
+        <li>Add</li>
+        <li>Sub</li>
+        <li>Mult</li>
+    </ul>
+
+    <form>
+        <input type="text" name="" id="choices">
+        <button onclick="myfun()">Click </button>
+    </form>
+
+
+    <script type="text/javascript">
+        function myfun() {
+
+            var choice = document.getElementById("choices").value;
+            // alert(choice);
+
+
+            switch (choice) {
+
+                case "add":
+                    var a = 10;
+                    var b = 20;
+                    var c = a + b;
+                    document.write("Addition " + c);
+                    break;
+
+                case "sub":
+                    var a = 10;
+                    var b = 20;
+                    var c = a - b;
+                    document.write("Sutraction " + c);
+
+                default:
+                    document.write("Select Valid topic..");
+            }
+        }
+
+        //WHILE-LOOP
+        var i = 1;
+        while (i <= 10) {
+            document.write(i);
+            i++;
+            document.write("<br>");
+        }
+
+
+        // //PROMPT
+        // var name = prompt("What is ur name");
+        // if (name != "") {
+        //     document.write("Welcome " + name + ".");
+        // }
+
+        //CONFIRMATION
+        function cb() {
+            var confirmation = confirm("Are you want to visit youtube...");
+
+            if (confirmation == true) {
+                window.open("https://www.youtube.com/");
+                return true;
+            } else {
+                window.open("http://localhost/javaScript/while&switch.html?");
+                return false;
+            }
+        }
+    </script>
+    <form>
+        <button onclick="cb()">Click </button>
+    </form>
+
+
+
+    <form>
+        <button onclick="win()">Window Info </button>
+    </form>
+
+
+    <!-- WINDOW-LOCATION -->
+    <script>
+        function win() {
+            document.write(window.location.pathname);
+        }
+    </Script>
+
+
+    <!-- Auto-Number-Generator -->
+    <script>
+        document.write(Math.floor(Math.random() * 20));
+    </script>
+
+
+    <!-- Object by Object_Literal -->
+    <script>
+        s = {
+            name: "ram",
+            sex: "male",
+            add: "delhi"
+        }
+
+        document.write(s.name + " " + s.sex, s.add);
+    </script>
+
+
+    <!-- Object by New-Keyword  -->
+    <script>
+        var sun = new Object(); {
+            sun.name = "ram";
+            sun.sex = "male";
+            sun.add = "delhi";
+        }
+
+        document.write(sun.name + " " + sun.sex, +" " + " " + sun.add);
+    </script>
+
+
+    <!-- Object by Object-Constructor  -->
+    <!-- Using - This-KeyWord  -->
+    <script>
+        function moon(name, sex, add) {
+
+            this.name = name;
+            this.sex = sex;
+            this.add = add;
+        }
+
+        roman = new moon("rahul", "male", "delhi");
+
+        document.write(roman.name + " " + roman.sex, roman.add);
+    </script>
+
+
+
+</body>
+
+
+<head>
+    <h1>Word-Reverse</h1>
+</head>
+
+<body>
+
+    <input type="text" name="" id="original" placeholder="Enter Word" onkeyup="reverse()" />
+    <input type="text" name="" id="afterReverse" placeholder="After Getting Reverse" />
+    <script>
+        function reverse() {
+
+            var str = document.getElementById('original').value;
+
+            var strlength = "";
+
+            for (var i = str.length - 1; i >= 0; i--) {
+
+                strlength += str[i];
+            }
+
+            document.getElementById('afterReverse').value = strlength;
+        }
+    </script>
+
+</body>
+
+</html>

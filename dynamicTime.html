@@ -1,0 +1,21 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <p id="showClock"> </p>
+    <script>
+        var clock = setInterval(clockTimming, 1000)
+
+        function clockTimming() {
+            var date = new Date();
+            var time = date.toLocaleTimeString();
+            document.getElementById('showClock').innerHTML = time;
+        }
+    </script>
+
+</body>
+
+</html>

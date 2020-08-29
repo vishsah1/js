@@ -1,0 +1,18 @@
+<h1>Is the combination of function and lexical analyzer</h1>
+
+<script>
+    function outerFun(a) {
+        var b = 20;
+
+        const innerFun = () => {
+
+            let sum = a + b;
+            console.log("the sum of two no. is " + sum);
+        }
+        return innerFun;
+    }
+    var fun = outerFun(50);
+
+    console.dir(fun);
+    fun();
+</script>

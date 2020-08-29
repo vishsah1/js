@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+    <style>
+        * {
+            margin-top: 0;
+            padding: 0;
+        }
+        
+        .car {
+            width: 50px;
+            height: 70px;
+            background: red;
+            position: absolute;
+            bottom: 40px;
+        }
+        
+        .lines {
+            width: 10px;
+            height: 100px;
+            background: white;
+            position: absolute;
+            margin-left: 195px;
+            opacity: 1.0;
+        }
+        
+        .gameArea {
+            height: 100vh;
+            width: 400px;
+            margin: auto;
+            background: #546e7a;
+            position: relative;
+        }
+        
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="carGame">
+        <div class="score">
+            <div class="startScreen">
+                <P>
+                    Press Any key to start game <br> Use Arrow Key to Move left and right <br> If you hit any car you will loose <br>
+                </P>
+            </div>
+            <div class="gameArea hide"> </div>
+
+            <script>
+                const score = document.querySelector('.score');
+                const startScreen = document.querySelector('.startScreen');
+                const gameArea = document.querySelector('.gameArea');
+
+                startScreen.addEventListener('click', start);
+
+                let player = {
+                    speed: 10
+                };
+
+
+                document.addEventListener('keydown', keyDown);
+                document.addEventListener('keyup', keyUp);
+
+                let keys = {
+                    ArrowUp: false,
+                    ArrowDown: false,
+                    ArrowLeft: false,
+                    ArrowRight: false
+                }
+
+                function keyDown(e) {
+                    e.preventDefault();
+                    keys[e.key] = true;
+                    console.log(e.key);
+                    console.log(keys);
+                }
+
+                function keyUp(e) {
+                    e.preventDefault();
+                    keys[e.key] = false;
+                    // console.log(e.key);
+                    console.log(e.keys);
+                }
+
+                function gamePlay() {
+
+                    console.log("hello");
+
+                    let car = document.querySelector('.car');
+                    let road = gameArea.getBoundingClientRect(); //to know dimension of road
+                    console.log(road);
+
+
+
+                    if (player.start) {
+
+                        if (keys.ArrowUp && player.y > (road.top + 70)) {
+                            player.y -= player.speed
+                        }
+                        if (keys.ArrowDown && player.y < (road.bottom - 70)) {
+                            player.y += player.speed
+                        }
+                        if (keys.ArrowLeft && player.x > 0) {
+                            player.x -= player.speed
+                        }
+                        if (keys.ArrowRight && player.x < (road.width - 50)) {
+                            player.x += player.speed
+                        }
+
+                        car.style.top = player.y + "px";
+                        car.style.left = player.x + "px";
+
+                        window.requestAnimationFrame(gamePlay);
+                    }
+                }
+
+                function start() {
+
+                    gameArea.classList.remove('hide');
+                    startScreen.classList.add('hide');
+
+
+                    player.start = true;
+                    window.requestAnimationFrame(gamePlay);
+
+
+                    let car = document.createElement('div');
+                    car.setAttribute('class', 'car');
+                    // car.innerText = "hiii";
+                    gameArea.appendChild(car);
+
+
+                    for (x = 0; x < 5; x++) {
+
+                        let roadLine = document.createElement('div');
+                        roadLine.setAttribute('class', 'lines');
+                        roadLine.style.top = (x * 150) + "px";
+                        gameArea.appendChild(roadLine);
+                    }
+
+                    player.x = car.offsetLeft;
+                    player.y = car.offsetTop;
+
+
+                    console.log(player.x);
+
+                    console.log("top" + car.offsetTop);
+                    // console.log("left" + car.offsetLeft);
+
+                }
+            </script>
+
+</body>
+
+</html>
